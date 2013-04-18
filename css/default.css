@@ -12,3 +12,27 @@
 
 @media screen and (-ms-view-state: fullscreen-portrait) {
 }
+
+#top {
+    float:left;
+}
+
+#left {
+    float:left;
+    width:600px;
+}
+
+#middle {
+    float:left;
+    width:200px;
+}
+
+#right {
+    float:left;
+    width:600px;
+}
+
+#bottom {
+    float:left;
+    clear:both;
+}

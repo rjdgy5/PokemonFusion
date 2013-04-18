@@ -22,6 +22,22 @@
                 // Restore application state here.
             }
             args.setPromise(WinJS.UI.processAll());
+
+            // Retrieve the button and register our event handler. 
+            var randomPokemon1Button = document.getElementById("randomPokemon1Button");
+            randomPokemon1Button.addEventListener("click", randomPokemon1_ButtonClickHandler, false);
+
+            // Retrieve the button and register our event handler. 
+            var randomPokemon2Button = document.getElementById("randomPokemon2Button");
+            randomPokemon2Button.addEventListener("click", randomPokemon2_ButtonClickHandler, false);
+
+            // Retrieve the button and register our event handler. 
+            var swapButton = document.getElementById("swapButton");
+            swapButton.addEventListener("click", swap_ButtonClickHandler, false);
+
+            // Retrieve the button and register our event handler. 
+            var randomizeButton = document.getElementById("randomizeButton");
+            randomizeButton.addEventListener("click", randomize_ButtonClickHandler, false);
         }
     };
 
@@ -34,12 +50,12 @@
         // args.setPromise().
     };
 
-    function pokemon1Random_ButtonClickHandler(eventInfo) {
+    function randomPokemon1_ButtonClickHandler(eventInfo) {
         random1 = Math.floor(Math.random() * (98 - 1 + 1)) + 1;
         pokemon1 = random1;
     }
 
-    function pokemon2Random_ButtonClickHandler(eventInfo) {
+    function randomPokemon2_ButtonClickHandler(eventInfo) {
         random2 = Math.floor(Math.random() * (98 - 1 + 1)) + 1;
         pokemon2 = random2;
     }
@@ -56,6 +72,21 @@
 
         random2 = Math.floor(Math.random() * (98 - 1 + 1)) + 1;
         pokemon2 = random2;
+    }
+
+    function setPokemon1Img(pokemon1) {
+        var url = "http://alexonsager.net/pokemon/" + pokemon1 + ".png";
+        document.getElementById("pokemon1Img").src(url);
+    }
+
+    function setPokemon2Img(pokemon1) {
+        var url = "http://alexonsager.net/pokemon/" + pokemon2 + ".png";
+        document.getElementById("pokemon2Img").src(url);
+    }
+
+    function setFusionImg(pokemon1, pokemon2) {
+        var url = "http://alexonsager.net/pokemon/fused/" + pokemon1 + "/" + pokemon1 + "." + pokemon2 + ".png";
+        document.getElementById("pokemonFusedImg").src(url);
     }
 
     app.start();
