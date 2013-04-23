@@ -13,6 +13,9 @@
     var pokemon2 = random2;
 
     app.onactivated = function (args) {
+        document.getElementById("pokemon1Select").selectedIndex = pokemon1;
+        document.getElementById("pokemon2Select").selectedIndex = pokemon2;
+        getFusion();
         if (args.detail.kind === activation.ActivationKind.launch) {
             if (args.detail.previousExecutionState !== activation.ApplicationExecutionState.terminated) {
                 // TODO: This application has been newly launched. Initialize
@@ -59,17 +62,24 @@
     function randomPokemon1_ButtonClickHandler(eventInfo) {
         random1 = Math.floor(Math.random() * (98 - 1 + 1)) + 1;
         pokemon1 = random1;
+        document.getElementById("pokemon1Select").selectedIndex = pokemon1;
+        getFusion();
     }
 
     function randomPokemon2_ButtonClickHandler(eventInfo) {
         random2 = Math.floor(Math.random() * (98 - 1 + 1)) + 1;
         pokemon2 = random2;
+        document.getElementById("pokemon2Select").selectedIndex = pokemon2;
+        getFusion();
     }
 
     function swap_ButtonClickHandler(eventInfo) {
         var temp = pokemon1;
         pokemon1 = pokemon2;
         pokemon2 = temp;
+        document.getElementById("pokemon1Select").selectedIndex = pokemon1;
+        document.getElementById("pokemon2Select").selectedIndex = pokemon2;
+        getFusion();
     }
 
     function randomize_ButtonClickHandler(eventInfo) {
@@ -78,27 +88,28 @@
 
         random2 = Math.floor(Math.random() * (98 - 1 + 1)) + 1;
         pokemon2 = random2;
+
+        document.getElementById("pokemon1Select").selectedIndex = pokemon1;
+        document.getElementById("pokemon2Select").selectedIndex = pokemon2;
+        getFusion();
     }
 
     function setPokemon1Img(pokemon1) {
-        var url = "http://alexonsager.net/pokemon/" + pokemon1 + ".png";
-        document.getElementById("pokemon1Img").src(url);
+        document.getElementById("pokemon1Img").src="http://images.alexonsager.net/pokemon/" + pokemon1 + ".png";
     }
 
-    function setPokemon2Img(pokemon1) {
-        var url = "http://alexonsager.net/pokemon/" + pokemon2 + ".png";
-        document.getElementById("pokemon2Img").src(url);
+    function setPokemon2Img(pokemon2) {
+        document.getElementById("pokemon2Img").src="http://images.alexonsager.net/pokemon/" + pokemon2 + ".png";
     }
 
     function setFusionImg(pokemon1, pokemon2) {
-        var url = "http://alexonsager.net/pokemon/fused/" + pokemon1 + "/" + pokemon1 + "." + pokemon2 + ".png";
-        document.getElementById("pokemonFusedImg").src(url);
+        document.getElementById("fusedPokemonImg").src="http://images.alexonsager.net/pokemon/fused/" + pokemon1 + "/" + pokemon1 + "." + pokemon2 + ".png";
     }
 
     function getFusion() {
-        setPokemon1Img(document.getElementById("pokemon1"));
-        setPokemon2Img(document.getElementById("pokemon2"));
-        setFusionImg(document.getElementById("pokemon1"), document.getElementById("pokemon2"));
+        setPokemon1Img(document.getElementById("pokemon1Select").value);
+        setPokemon2Img(document.getElementById("pokemon2Select").value);
+        setFusionImg(document.getElementById("pokemon1Select").value, document.getElementById("pokemon2Select").value);
     }
 
     app.start();
