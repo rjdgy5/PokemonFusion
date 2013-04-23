@@ -13,27 +13,36 @@
 @media screen and (-ms-view-state: fullscreen-portrait) {
 }
 
+h1 {
+   margin-top: 20px;
+   margin-left: 200px;
+}
+
 #top {
     float:left;
+    margin-top: 50px;
 }
 
 #left {
     float:left;
-    width:600px;
+    width:300px;
+    margin-left: 50px;
 }
 
 #middle {
     float:left;
     width:200px;
+    margin-left: 10px;
 }
 
 #right {
     float:left;
-    width:600px;
+    width:300px;
+    margin-left: 50px;
 }
 
 #bottom {
-    float:left;
     clear:both;
-    margin:auto;
+    margin-top: 20px;
+    margin-left: 300px;
 }
