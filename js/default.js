@@ -38,6 +38,12 @@
             // Retrieve the button and register our event handler. 
             var randomizeButton = document.getElementById("randomizeButton");
             randomizeButton.addEventListener("click", randomize_ButtonClickHandler, false);
+
+            var pokemon1Select = document.getElementById("pokemon1Select");
+            pokemon1Select.addEventListener("change", getFusion, false);
+
+            var pokemon2Select = document.getElementById("pokemon2Select");
+            pokemon2Select.addEventListener("change", getFusion, false);
         }
     };
 
@@ -87,6 +93,12 @@
     function setFusionImg(pokemon1, pokemon2) {
         var url = "http://alexonsager.net/pokemon/fused/" + pokemon1 + "/" + pokemon1 + "." + pokemon2 + ".png";
         document.getElementById("pokemonFusedImg").src(url);
+    }
+
+    function getFusion() {
+        setPokemon1Img(document.getElementById("pokemon1"));
+        setPokemon2Img(document.getElementById("pokemon2"));
+        setFusionImg(document.getElementById("pokemon1"), document.getElementById("pokemon2"));
     }
 
     app.start();
